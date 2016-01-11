@@ -38,7 +38,7 @@ contents.each do |row|
   id = row[0]
   name = row[:first_name]
   zipcode = clean_zipcode(row[:zipcode])
-  # phone = row[:homephone]
+  # phone = row[:homephone]workmf
   legislators = legislators_by_zipcode(zipcode)
 
   puts "#{name} #{zipcode} #{phone}"
