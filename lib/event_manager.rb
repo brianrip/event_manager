@@ -9,10 +9,6 @@ def clean_zipcode(zipcode)
   zipcode.to_s.rjust(5, "0")[0..4]
 end
 
-# def clean_phone_numbers(phone)
-#   phone.to
-# end
-
 def legislators_by_zipcode(zipcode)
   Sunlight::Congress::Legislator.by_zipcode(zipcode)
 end
@@ -38,10 +34,8 @@ contents.each do |row|
   id = row[0]
   name = row[:first_name]
   zipcode = clean_zipcode(row[:zipcode])
-  # phone = row[:homephone]workmf
   legislators = legislators_by_zipcode(zipcode)
 
-  puts "#{name} #{zipcode} #{phone}"
   form_letter = erb_template.result(binding)
 
   save_thank_you_letters(id,form_letter)
